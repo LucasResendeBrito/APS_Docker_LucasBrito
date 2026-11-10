@@ -1,0 +1,31 @@
+services:
+  api:
+    build: ./node-service
+    container_name: tarefas_api
+    ports:
+      - "3000:3000"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: tarefas_db
+      DB_USER: app_user
+      DB_PASSWORD: app_senha
+    depends_on:
+      - db
+    restart: on-failure
+
+  db:
+    image: mysql:8.0
+    container_name: tarefas_mysql
+    environment:
+      MYSQL_DATABASE: tarefas_db
+      MYSQL_ROOT_PASSWORD: root_senha
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: app_senha
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+
+volumes:
+  mysqldata:

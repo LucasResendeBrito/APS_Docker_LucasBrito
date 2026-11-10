@@ -1,0 +1,15 @@
+{
+  "name": "node-service",
+  "version": "1.0.0",
+  "description": "API de Tarefas com documentacao Swagger UI para atividade Docker",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.0",
+    "mysql2": "^3.11.0"
+  }
+}
